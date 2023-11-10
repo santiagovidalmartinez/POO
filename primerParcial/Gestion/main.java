@@ -6,30 +6,31 @@ public class main {
     public static void main(String[] args) {
    List<vehiculo> vehiculos = new ArrayList<>();
    
-   vehiculos.add(new automovil("toyota","camry ", 2019,"juan",4));
-   vehiculos.add(new automovil("honda","civic ", 2020,"maria",4));
-   vehiculos.add(new motocicleta("suzuki","r15 ", 2022,"pedro",200));
-   vehiculos.add(new motocicleta("kawasaki","ninja ", 2021,"ana",400));
-   vehiculos.add(new automovil("ford","camry ", 2019,"carlos",4));
-   vehiculos.add(new motocicleta("yamaha","camry ", 2019,"laura",500));
-   vehiculos.add(new motocicleta("eco","luxe ", 2013,"miguel",100));
-   vehiculos.add(new automovil("renould","logan ", 2019,"luis",4));
-   vehiculos.add(new automovil("toyota","txl ", 2019,"elena ",2));
-   vehiculos.add(new motocicleta("suzuki","rx ", 2019,"diego",115));
+        // Llena el arreglo con al menos 10 datos diferentes (Automóviles y Motocicletas)
+        vehiculos.add(new Automovil("Toyota", "Camry", 2019, "Juan", 4));
+        vehiculos.add(new Automovil("Honda", "Civic", 2020, "Maria", 4));
+        vehiculos.add(new Motocicleta("Harley-Davidson", "Sportster", 2018, "Pedro", 883.0));
+        vehiculos.add(new Motocicleta("Kawasaki", "Ninja", 2021, "Ana", 600.0));
+        vehiculos.add(new Automovil("Ford", "Focus", 2017, "Carlos", 4));
+        vehiculos.add(new Motocicleta("Yamaha", "YZF-R6", 2019, "Laura", 600.0));
+        vehiculos.add(new Motocicleta("Suzuki", "GSX-R750", 2020, "Miguel", 750.0));
+        vehiculos.add(new Automovil("Chevrolet", "Cruze", 2016, "Luis", 4));
+        vehiculos.add(new Automovil("Volkswagen", "Jetta", 2018, "Elena", 4));
+        vehiculos.add(new Motocicleta("Honda", "CBR500R", 2017, "Diego", 500.0))
    
-   
+    // No se debe permitir duplicidad de propietarios
    for(int i = 0 ; i < vehiculos.size(); i++){
        for ( int j = i + 1 ; j < vehiculos.size(); j++){
            if (vehiculos.get(i).getPropietario().equals(vehiculos.get(j).getPropietario()))
                System.out.println("propietario duplicado : "+vehiculos.get(i).getPropietario());
        }
    }
-     
+      // Itera sobre el arreglo y muestra la información de cada vehículo
    for( vehiculo vehiculo : vehiculos  ){
        vehiculo.mostrarInformacion();
        System.out.println("--------------------------------------------------------");
    }
-   
+   // Obtener todos los Vehículos Automóvil
         System.out.println("vehiculos automovil:");
         for(vehiculo vehiculo : vehiculos){
             if ( vehiculo instanceof automovil){
@@ -37,7 +38,7 @@ public class main {
                 System.out.println("-----------------------------------------------");
             }
         }
-   
+    // Obtener todos los Vehículos Motocicleta
      System.out.println("vehiculos motocicleta:");
         for(vehiculo vehiculo : vehiculos){
             if ( vehiculo instanceof motocicleta){
@@ -46,7 +47,7 @@ public class main {
             }
         }
    
-   
+    // Modificar el nombre del propietario de un vehículo en específico
    String placamodificar = "toyota camry 2019";
    String nuevopropietario  = "roberto";
    
@@ -54,14 +55,26 @@ public class main {
        if(vehiculo instanceof automovil && vehiculo.getMarca().equals("toyota")
            && vehiculo.getModelo().equals("camry")&& vehiculo.getAño()==2019){
            vehiculo.setPropietario(nuevopropietario);
-       }
-           
-       
-       
-   
-   
-     
-  }      
+       }    
+  }  
+  // Obtener todos los Vehículos para verificar que se modificó
+        System.out.println("Vehículos después de la modificación:");
+        for (Vehiculo vehiculo : vehiculos) {
+            vehiculo.mostrarInformacion();
+            System.out.println("-------------------------");
+        }
+
+  // Obtener un vehículo específico identificado por placa
+        String placaBuscada = "Suzuki GSX-R750 2020";
+        for (Vehiculo vehiculo : vehiculos) {
+            String placa = vehiculo.getMarca() + " " + vehiculo.getModelo() + " " + vehiculo.getAño();
+            if (placa.equals(placaBuscada)) {
+                System.out.println("Vehículo encontrado:");
+                vehiculo.mostrarInformacion();
+                break;
+            }
+        }
+        
     }
     
 }
