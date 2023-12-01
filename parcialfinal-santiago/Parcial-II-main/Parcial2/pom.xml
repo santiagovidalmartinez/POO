@@ -13,15 +13,11 @@
         
     </properties>
     <dependencies>
-        <!-- Spark Java -->
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
             <version>2.9.4</version>
         </dependency>
-        <!-- Gson -->
-      <!--Es donde se crean las propiedades y dependencias de las librerias importadas
-        , se encuentran las de spark y jaason por ejemplo -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
